@@ -1,0 +1,37 @@
+public with sharing class OrderSelectionListController {
+
+  @AuraEnabled(cacheable=true)
+  public static String getOrderRecords() {
+      
+    Integer rowIndex = 0;
+    List<OrderWrapper> wrapperList = new List<OrderWrapper>();
+    
+    List<OrderItem> orderItemList = [SELECT Id, OrderItemNumber, Description, UnitPrice FROM OrderItem];
+    for(OrderItem item : orderItemList){
+      wrapperList.add(new OrderWrapper(item, rowIndex));
+      rowIndex++;
+    }
+
+    return JSON.serialize(wrapperList);
+    
+  }
+
+  public class OrderWrapper{
+    public String Id;
+    public String orderItemNumber;
+    public String description;
+    public Decimal unitPrice;
+    public Boolean isSelected;
+    public Integer index;
+  
+    public OrderWrapper(OrderItem item, Integer index){
+        this.Id = item.Id;
+        this.orderItemNumber = item.OrderItemNumber;
+        this.description = item.Description;
+        this.unitPrice = item.UnitPrice;
+        this.isSelected = false;
+        this.index = index;
+    } 
+  }
+  
+}

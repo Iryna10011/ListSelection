@@ -33,5 +33,9 @@ public with sharing class OrderSelectionListController {
         this.index = index;
     } 
   }
+
+  public class OrderItemWrapper{
+  
+  }
   
 }

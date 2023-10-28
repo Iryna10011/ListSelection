@@ -35,7 +35,7 @@ public with sharing class OrderSelectionListController {
   }
 
   public class OrderItemWrapper{
-  
+    public String Id;
   }
   
 }

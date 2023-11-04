@@ -12,7 +12,8 @@ public with sharing class OrderSelectionListController {
       rowIndex++;
     }
 
-    return JSON.serialize(wrapperList);
+    //return JSON.serialize(wrapperList);
+return null;
     
   }
 

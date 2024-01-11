@@ -5,7 +5,8 @@ public with sharing class OrderSelectionListController {
       
     Integer rowIndex = 0;
     List<OrderWrapper> wrapperList = new List<OrderWrapper>();
-    
+
+
     List<OrderItem> orderItemList = [SELECT Id, OrderItemNumber, Description, UnitPrice FROM OrderItem];
     for(OrderItem item : orderItemList){
       wrapperList.add(new OrderWrapper(item, rowIndex));

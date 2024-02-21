@@ -5,6 +5,7 @@ public with sharing class OrderSelectionListController {
 
       
     Integer rowIndex = 0;
+
     List<OrderWrapper> wrapperList = new List<OrderWrapper>();
 
 
